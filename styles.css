@@ -34,6 +34,13 @@ a { color: inherit; text-decoration: none; }
 .topbar nav { display: flex; gap: 34px; margin-left: auto; margin-right: 42px; font-size: 13px; font-weight: 700; }
 .topbar nav a { color: var(--muted); transition: color .2s ease; }
 .topbar nav a:hover { color: var(--accent-dark); }
+.clock-panel { display: grid; gap: 0; margin-left: 16px; }
+.topbar-tools { display: flex; align-items: center; gap: 20px; }
+.language-switch { display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .5px; }
+.language-button { border: 0; padding: 4px 2px; background: transparent; color: var(--muted); cursor: pointer; font: 700 11px var(--body); }
+.language-button.is-active { color: var(--accent-dark); }
+.live-clock { min-width: 67px; color: var(--ink); font: 700 12px var(--display); letter-spacing: .8px; }
+.live-date { color: var(--muted); font-size: 10px; line-height: 1.2; white-space: nowrap; }
 .print-button { border: 0; border-bottom: 1px solid var(--ink); padding: 7px 0; background: transparent; color: var(--ink); cursor: pointer; font: 700 13px var(--body); }
 .print-icon { display: inline-block; margin-right: 5px; color: var(--accent); font-size: 17px; }
 .hero { min-height: 520px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr); gap: 8vw; align-items: center; padding: 76px 0 82px; position: relative; }
@@ -128,7 +135,11 @@ h2 { margin: 0; font: 700 23px/1.1 var(--display); letter-spacing: -.5px; }
   .page-shell { padding: 0 22px; }
   .topbar { height: 72px; }
   .topbar nav { display: none; }
-  .print-button { margin-left: auto; }
+  .clock-panel { margin-left: 12px; }
+  .topbar-tools { gap: 11px; }
+  .live-clock { min-width: 62px; font-size: 11px; letter-spacing: 0; }
+  .live-date { font-size: 9px; }
+  .print-button { margin-left: 0; font-size: 12px; }
   .hero { display: block; min-height: auto; padding: 65px 0 68px; }
   .hero:before { right: -80px; top: 28px; width: 210px; height: 210px; }
   h1 { font-size: 82px; letter-spacing: -5px; }
@@ -158,7 +169,7 @@ h2 { margin: 0; font: 700 23px/1.1 var(--display); letter-spacing: -.5px; }
   body, .page-shell { background: #fff; }
   .page-shell { max-width: none; padding: 0; }
   .topbar { height: 55px; }
-  .topbar nav, .print-button, .hero-actions { display: none; }
+  .topbar nav, .topbar-tools, .clock-panel, .hero-actions { display: none; }
   .hero { min-height: 0; padding: 38px 0 38px; }
   .hero:before { display: none; }
   h1 { font-size: 76px; }
