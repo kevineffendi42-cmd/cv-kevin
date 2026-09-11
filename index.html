@@ -23,14 +23,25 @@
   <div class="page-shell">
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Kembali ke atas">K<span>.</span></a>
+      <div class="clock-panel" aria-label="Waktu dan tanggal sekarang">
+        <time class="live-clock" id="live-clock">00:00:00</time>
+        <time class="live-date" id="live-date">11 September 2026</time>
+      </div>
       <nav aria-label="Navigasi CV">
         <a href="#experience">Pengalaman</a>
         <a href="#skills">Keahlian</a>
         <a href="#education">Pendidikan</a>
       </nav>
-      <button class="print-button" type="button" onclick="window.print()" aria-label="Cetak atau simpan CV sebagai PDF">
-        <span class="print-icon" aria-hidden="true">↗</span> Cetak CV
-      </button>
+      <div class="topbar-tools">
+        <div class="language-switch" aria-label="Pilih bahasa">
+          <button class="language-button is-active" type="button" data-language="id">ID</button>
+          <span>/</span>
+          <button class="language-button" type="button" data-language="en">EN</button>
+        </div>
+        <button class="print-button" type="button" onclick="window.print()" aria-label="Cetak atau simpan CV sebagai PDF">
+          <span class="print-icon" aria-hidden="true">↗</span> Cetak CV
+        </button>
+      </div>
     </header>
 
     <main id="top">
@@ -177,6 +188,115 @@
     <footer class="footer"><span>KEVIN</span><span>OPERATIONS · PRODUCTION · IT</span><span>© 2026</span></footer>
   </div>
   <script>
+    const translations = {
+      id: {
+        nav: ['Pengalaman', 'Keahlian', 'Pendidikan'],
+        print: 'Cetak CV',
+        eyebrow: 'Curriculum Vitae · 2026',
+        title: 'Manajemen Operasional<br>&amp; Produksi',
+        summary: 'Seorang Manajemen Operasional &amp; Produksi dengan pengalaman lebih dari 8 tahun di industri manufaktur, khususnya pada spesialisasi <em>assembling</em>, <em>painting powder coating</em>, Staff IT, dan manajemen logistik gudang. Terbukti sukses memimpin tim multi-shift, mengoptimalkan efisiensi lini produksi, menjaga standar kontrol kualitas, serta mengintegrasikan sistem pelaporan berbasis teknologi untuk mendukung pengambilan keputusan manajemen.',
+        contact: 'Hubungi Kevin',
+        viewExperience: 'Lihat pengalaman',
+        availability: 'Terbuka untuk peluang baru',
+        labels: ['Website', 'Telepon', 'Email', 'Lokasi'],
+        years: 'tahun pengalaman',
+        headings: ['Pengalaman kerja', 'Keahlian utama', 'Pendidikan', 'Sertifikat &amp; pelatihan'],
+        feature: ['Produksi<br>ke sistem.', 'Pengalaman yang bergerak<br>mengikuti kebutuhan operasi.', 'TAHUN<br>PENGALAMAN'],
+        skills: [
+          ['Manajemen &amp; operasional', 'Pengawasan lini produksi, manajemen gudang barang jadi, persiapan pengiriman material, dan manajemen stok (<em>stock control</em>).'],
+          ['Kepemimpinan', 'Manajemen tim multi-shift, alokasi instruksi kerja, koordinasi antar-divisi, dan pelaporan eksekutif.'],
+          ['Teknik &amp; IT', 'Administrasi basis data MySQL dan MS SQL Server, network security, pemeliharaan perangkat keras/lunak, network support, instalasi CCTV, serta mesin painting IT GEMA &amp; Real Wood.']
+        ],
+        education: ['Sekolah Menengah Kejuruan', 'Praktik Kerja Lapangan di PT Suzuki', 'Lulus 2021'],
+        degree: 'Diploma III (D3)<br>Sistem Informasi',
+        certificate: ['Seminar Teknis', 'Seminar Karir'],
+        jobs: [
+          ['IT Staff', ['Memelihara database internal berbasis MySQL dan MS SQL Server untuk mendukung kelancaran operasional.', 'Menangani troubleshooting dan pemeliharaan aplikasi desktop internal.', 'Mendukung jaringan serta melakukan perawatan preventif perangkat keras kantor dan pabrik.']],
+          ['Kepala Gudang Barang Jadi', ['Mengawasi alur kerja harian dan mengoordinasikan instruksi kerja bagi Kepala Shift Logistik.', 'Mengelola tata letak gudang, akurasi stok, dan persiapan pengiriman material pelanggan.', 'Menyusun laporan mutasi barang dan inventaris berkala untuk dipresentasikan kepada Direksi.']],
+          ['Kepala Shift Powder Coating', ['Memimpin operasional lini produksi powder coating multi-shift untuk mencapai target output harian.', 'Menerapkan kontrol kualitas ketat dengan pendekatan zero-defect dan menjaga volume produksi.', 'Menyusun laporan evaluasi produksi harian dan menyampaikannya kepada Kepala Bagian.']],
+          ['Leader Powder Coating', ['Mengoordinasikan tim dan memastikan proses powder coating berjalan sesuai standar kerja dan target produksi.', 'Melakukan inspeksi visual awal serta pencatatan hasil proses pembakaran dan pengecatan aluminium.']],
+          ['Operator Powder Coating', ['Mengoperasikan mesin pengecatan otomatis dan melakukan pengecatan manual (touch-up) pada sudut presisi.', 'Melakukan inspeksi visual awal dan pencatatan hasil proses pembakaran serta pengecatan aluminium.']],
+          ['Praktik Kerja Lapangan', ['Membantu menyiapkan material assembling dan mengelompokkan material sesuai tipe produk yang akan dirakit.']]
+        ]
+      },
+      en: {
+        nav: ['Experience', 'Skills', 'Education'],
+        print: 'Print CV',
+        eyebrow: 'Curriculum Vitae · 2026',
+        title: 'Operations Management<br>&amp; Production',
+        summary: 'An Operations and Production Management professional with more than 8 years of experience in aluminium manufacturing, specializing in <em>assembling</em>, <em>powder coating painting</em>, IT support, and warehouse logistics management. Proven ability to lead multi-shift teams, improve production efficiency, maintain quality standards, and integrate technology-based reporting for management decisions.',
+        contact: 'Contact Kevin',
+        viewExperience: 'View experience',
+        availability: 'Open to new opportunities',
+        labels: ['Website', 'Phone', 'Email', 'Location'],
+        years: 'years of experience',
+        headings: ['Work experience', 'Core skills', 'Education', 'Certificates &amp; training'],
+        feature: ['Production<br>to systems.', 'Experience that moves<br>with operational needs.', 'YEARS OF<br>EXPERIENCE'],
+        skills: [
+          ['Management &amp; operations', 'Production line supervision, finished goods warehouse management, material shipment preparation, and stock control.'],
+          ['Leadership', 'Multi-shift team management, work instruction allocation, cross-department coordination, and executive reporting.'],
+          ['Technical &amp; IT', 'MySQL and MS SQL Server database administration, network security, hardware/software maintenance, network support, CCTV installation, and IT GEMA &amp; Real Wood painting machines.']
+        ],
+        education: ['Vocational High School', 'Internship at Suzuki', 'Graduated 2021'],
+        degree: 'Associate Degree (D3)<br>Information Systems',
+        certificate: ['Technical Seminar', 'Career Seminar'],
+        jobs: [
+          ['IT Staff', ['Maintained internal MySQL and MS SQL Server databases to support smooth operations.', 'Handled troubleshooting and maintenance of internal desktop applications.', 'Supported networks and performed preventive maintenance on office and plant hardware.']],
+          ['Finished Goods Warehouse Manager', ['Supervised daily workflows and coordinated work instructions for Logistics Shift Heads.', 'Managed warehouse layout, stock accuracy, and customer material shipment preparation.', 'Prepared periodic goods movement and inventory reports for the Board of Directors.']],
+          ['Powder Coating Shift Head', ['Led multi-shift powder coating production operations to meet daily output targets.', 'Applied strict quality control with a zero-defect approach while maintaining production volume.', 'Prepared daily production evaluation reports for the Department Head.']],
+          ['Powder Coating Leader', ['Coordinated the team and ensured powder coating followed work standards and production targets.', 'Performed initial visual inspections and recorded aluminium baking and painting results.']],
+          ['Powder Coating Operator', ['Operated automatic painting machines and performed manual touch-up on precision corners.', 'Performed initial visual inspections and recorded aluminium baking and painting results.']],
+          ['Internship', ['Prepared assembling materials and grouped them according to the product type to be assembled.']]
+        ]
+      }
+    };
+
+    const text = (selector, value) => { document.querySelector(selector).innerHTML = value; };
+    const applyLanguage = (language) => {
+      const t = translations[language];
+      document.documentElement.lang = language;
+      document.querySelectorAll('.topbar nav a').forEach((item, index) => item.textContent = t.nav[index]);
+      text('.print-button', `<span class="print-icon" aria-hidden="true">↗</span> ${t.print}`);
+      text('.eyebrow', `<span></span> ${t.eyebrow}`);
+      text('.hero-title', t.title);
+      text('.hero-summary', t.summary);
+      text('.primary-button', `${t.contact} <span aria-hidden="true">↗</span>`);
+      text('.text-link', `${t.viewExperience} <span aria-hidden="true">↓</span>`);
+      text('.availability', `<span class="status-dot"></span> ${t.availability}`);
+      document.querySelectorAll('.contact-label').forEach((item, index) => item.textContent = t.labels[index]);
+      text('.hero-mark small', t.years);
+      document.querySelectorAll('.section-heading h2').forEach((item, index) => item.innerHTML = t.headings[index]);
+      text('.feature-copy strong', t.feature[0]);
+      text('.feature-copy small', t.feature[1]);
+      text('.feature-stat small', t.feature[2]);
+      document.querySelectorAll('.skill-group').forEach((item, index) => {
+        item.querySelector('h3').innerHTML = t.skills[index][0];
+        item.querySelector('p').innerHTML = t.skills[index][1];
+      });
+      const educationItems = document.querySelectorAll('.education-item');
+      educationItems[0].querySelector('.date-pill').textContent = t.education[0];
+      educationItems[0].querySelector('p').textContent = t.education[1];
+      educationItems[1].querySelector('.date-pill').textContent = t.education[2];
+      educationItems[1].querySelector('h3').innerHTML = t.degree;
+      document.querySelectorAll('.job').forEach((job, index) => {
+        job.querySelector('h3').textContent = t.jobs[index][0];
+        job.querySelectorAll('li').forEach((item, bulletIndex) => item.textContent = t.jobs[index][1][bulletIndex]);
+      });
+      document.querySelectorAll('.certificates strong').forEach((item, index) => item.textContent = t.certificate[index]);
+      document.querySelectorAll('.language-button').forEach((button) => button.classList.toggle('is-active', button.dataset.language === language));
+      localStorage.setItem('cv-language', language);
+    };
+
+    const updateClock = () => {
+      const now = new Date();
+      document.querySelector('#live-clock').textContent = now.toLocaleTimeString('id-ID', { hour12: false });
+      document.querySelector('#live-date').textContent = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+    };
+    document.querySelectorAll('.language-button').forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.language)));
+    applyLanguage(localStorage.getItem('cv-language') || 'id');
+    updateClock();
+    setInterval(updateClock, 1000);
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add('is-visible');
