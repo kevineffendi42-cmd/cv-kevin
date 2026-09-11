@@ -51,6 +51,7 @@ h1 { margin: 0; font: 700 clamp(68px, 10vw, 132px)/.86 var(--display); letter-sp
 .text-link { color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 4px; font-size: 13px; font-weight: 700; }
 .text-link span { margin-left: 8px; color: var(--accent); }
 .hero-aside { padding-left: 34px; border-left: 1px solid var(--line); }
+.profile-photo { display: block; width: 116px; height: 142px; margin-bottom: 27px; object-fit: cover; object-position: center top; border: 1px solid var(--line); background: var(--ink); }
 .availability { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 33px; color: var(--accent-dark); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; }
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #5eaa78; box-shadow: 0 0 0 5px #dcebe2; }
 .contact-list { display: grid; gap: 21px; }
@@ -134,6 +135,7 @@ h2 { margin: 0; font: 700 23px/1.1 var(--display); letter-spacing: -.5px; }
   .hero-title { font-size: 26px; }
   .hero-summary { font-size: 15px; }
   .hero-aside { margin-top: 56px; padding: 26px 0 0; border-top: 1px solid var(--line); border-left: 0; }
+  .profile-photo { width: 108px; height: 132px; margin-bottom: 24px; }
   .hero-mark { position: absolute; right: 0; bottom: 0; margin: 0; font-size: 58px; }
   .content-grid { display: block; padding: 56px 0 60px; }
   .section { margin-bottom: 60px; }
@@ -161,6 +163,7 @@ h2 { margin: 0; font: 700 23px/1.1 var(--display); letter-spacing: -.5px; }
   .hero:before { display: none; }
   h1 { font-size: 76px; }
   .hero-aside { padding-left: 25px; }
+  .profile-photo { width: 96px; height: 118px; }
   .content-grid { gap: 35px; padding: 42px 0 20px; }
   .section { margin-bottom: 34px; }
   .job { padding: 15px 0; }
